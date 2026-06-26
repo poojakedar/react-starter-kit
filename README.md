@@ -13,3 +13,6 @@ A modern and lightweight React starter kit powered by Vite, designed to help you
 - 🔧 Ready-to-use scripts
 
 ---
+
+![React](https://img.shields.io/badge/React-18-blue)
+![Vite](https://img.shields.io/badge/Vite-fast-purple)
