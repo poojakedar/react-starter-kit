@@ -1,0 +1,65 @@
+/* ============================================================
+   Global styles
+   ============================================================ */
+
+/* CSS custom properties (design tokens) — override these in a theme file */
+:root {
+  --color-primary: #646cff;
+  --color-primary-hover: #535bf2;
+  --color-bg: #ffffff;
+  --color-text: #213547;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  --radius: 8px;
+  --transition: 0.2s ease;
+}
+
+/* Dark-mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #242424;
+    --color-text: rgba(255, 255, 255, 0.87);
+    --color-text-muted: #9ca3af;
+    --color-border: #374151;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}

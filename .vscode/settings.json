@@ -1,0 +1,11 @@
+{
+  // Format on save with Prettier
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Run ESLint fix on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // Show ESLint status
+  "eslint.validate": ["javascript", "javascriptreact"]
+}
