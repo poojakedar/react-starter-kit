@@ -74,10 +74,9 @@
   margin-bottom: 2rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  .welcomeBanner {
-    background: linear-gradient(135deg, #1e2337 0%, #1e1b35 100%);
-  }
+/* Dark mode — responds to the manual toggle ([data-theme]) */
+:global([data-theme='dark']) .welcomeBanner {
+  background: linear-gradient(135deg, #1e2337 0%, #1e1b35 100%);
 }
 
 .avatar {

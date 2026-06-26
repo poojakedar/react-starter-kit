@@ -4,6 +4,10 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  /* Inherit the smooth theme transition from body */
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .inner {
@@ -21,6 +25,7 @@
   font-weight: 700;
   color: var(--color-text);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .right {
@@ -48,17 +53,73 @@
   font-weight: 600;
 }
 
+/* ── Theme toggle switch ─────────────────────────────────── */
 .themeToggle {
   background: none;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+  border: none;
   cursor: pointer;
-  font-size: 1rem;
-  padding: 0.25rem 0.5rem;
-  line-height: 1;
-  transition: border-color var(--transition);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  /* Prevent focus outline from going invisible in dark mode */
+  border-radius: 999px;
 }
 
-.themeToggle:hover {
-  border-color: var(--color-primary);
+.themeToggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* The pill-shaped track */
+.toggleTrack {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  background-color: #d1d5db;
+  transition: background-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.toggleTrack.dark {
+  background-color: var(--color-primary);
+}
+
+/* The sliding circle */
+.toggleThumb {
+  position: absolute;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease;
+}
+
+.toggleTrack.dark .toggleThumb {
+  transform: translateX(24px);
+}
+
+/* The sun / moon icon sits on the thumb */
+.toggleIcon {
+  position: absolute;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+  pointer-events: none;
+}
+
+.toggleTrack.dark .toggleIcon {
+  color: #ffffff;
+  transform: translateX(24px);
 }

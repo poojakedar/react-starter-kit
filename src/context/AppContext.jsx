@@ -2,38 +2,36 @@
  * AppContext.jsx — Global application state
  *
  * Manages app-wide concerns that don't belong to a single feature:
- *   - theme ('light' | 'dark') — persisted in localStorage
- *
- * Add more global slices here as needed (e.g. locale, feature flags).
+ *   - theme ('light' | 'dark') — persisted in localStorage, respects OS
+ *     preference on first visit, and drives [data-theme] on <html>.
  *
  * Usage:
  *   import { useApp } from '@/context/AppContext'
  *   const { theme, toggleTheme } = useApp()
  */
-import { createContext, useContext } from 'react'
+import { createContext, useContext, useEffect } from 'react'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 const AppContext = createContext(null)
 
 export function AppProvider({ children }) {
-  // Detect OS preference as the default if no preference is stored
+  // Seed from OS preference on first visit; persist choice to localStorage
   const prefersDark =
     typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
 
   const [theme, setTheme] = useLocalStorage('app-theme', prefersDark ? 'dark' : 'light')
 
+  // Apply [data-theme] to <html> so every CSS rule that uses the attribute
+  // updates instantly. Running in useEffect avoids mutating the DOM during render.
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
   function toggleTheme() {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
   }
 
-  // Apply the theme class to <html> so CSS variables cascade everywhere
-  if (typeof document !== 'undefined') {
-    document.documentElement.setAttribute('data-theme', theme)
-  }
-
-  const value = { theme, toggleTheme }
-
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>
+  return <AppContext.Provider value={{ theme, toggleTheme }}>{children}</AppContext.Provider>
 }
 
 /** useApp — consume AppContext. Throws if used outside <AppProvider>. */
