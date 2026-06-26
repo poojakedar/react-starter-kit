@@ -1,7 +1,7 @@
 .hero {
   text-align: center;
   padding: 3rem 1rem 2.5rem;
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
@@ -19,15 +19,95 @@
   line-height: 1.7;
 }
 
+/* Guest hero CTA buttons */
+.heroCta {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+/* Feature highlights grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.feature {
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.featureIcon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.featureTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.featureDesc {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Authenticated welcome banner */
+.welcomeBanner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f0f4ff 0%, #f5f3ff 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .welcomeBanner {
+    background: linear-gradient(135deg, #1e2337 0%, #1e1b35 100%);
+  }
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.welcomeText {
+  flex: 1;
+  min-width: 0;
+}
+
+.feedHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.25rem;
-  margin-top: 2rem;
-}
-
-.error {
-  color: #ef4444;
-  text-align: center;
-  padding: 2rem;
+  margin-top: 0.5rem;
 }

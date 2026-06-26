@@ -84,14 +84,34 @@ function LoginPage() {
             />
           </div>
 
-          <Button type="submit" disabled={submitting} size="lg">
+          <Button type="submit" disabled={submitting} size="lg" style={{ width: '100%' }}>
             {submitting ? 'Signing in…' : 'Sign in'}
           </Button>
         </form>
 
-        <p className={styles.footer}>
-          Don&apos;t have an account? <Link to={ROUTES.REGISTER}>Create one</Link>
-        </p>
+        {/* Demo credentials — remove this block when connecting a real backend */}
+        <div className={styles.demoBox}>
+          <p className={styles.demoTitle}>Demo credentials</p>
+          <div className={styles.demoRow}>
+            <button
+              type="button"
+              className={styles.demoBtn}
+              onClick={() => setForm({ email: 'demo@example.com', password: 'password123' })}
+            >
+              Admin — demo@example.com
+            </button>
+            <button
+              type="button"
+              className={styles.demoBtn}
+              onClick={() => setForm({ email: 'jane@example.com', password: 'password123' })}
+            >
+              Viewer — jane@example.com
+            </button>
+          </div>
+          <p className={styles.demoNote}>
+            Password for both accounts: <code>password123</code>
+          </p>
+        </div>
       </div>
     </div>
   )
