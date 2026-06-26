@@ -23,6 +23,12 @@
   text-decoration: none;
 }
 
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .navList {
   list-style: none;
   display: flex;
@@ -40,4 +46,19 @@
 .navLink.active {
   color: var(--color-primary);
   font-weight: 600;
+}
+
+.themeToggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  transition: border-color var(--transition);
+}
+
+.themeToggle:hover {
+  border-color: var(--color-primary);
 }

@@ -120,15 +120,5 @@ npm run preview   # Preview the production build locally
 
 ---
 
-## 🚀 Features
-
-- ⚡ Vite for fast development
-- ✅ ESLint configured
-- 🎯 Prettier for code formatting
-- 📁 Clean and scalable folder structure
-- 🔧 Ready-to-use scripts
-
----
-
 ![React](https://img.shields.io/badge/React-18-blue)
 ![Vite](https://img.shields.io/badge/Vite-fast-purple)

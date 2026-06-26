@@ -1,0 +1,75 @@
+.wrapper {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-left: 4px solid #ef4444;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.wrapper.compact {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  color: #ef4444;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: #991b1b;
+}
+
+.message {
+  font-size: 0.875rem;
+  color: #b91c1c;
+  line-height: 1.5;
+}
+
+.retryBtn {
+  margin-top: 0.5rem;
+  background: none;
+  border: 1px solid #ef4444;
+  border-radius: var(--radius);
+  color: #ef4444;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.retryBtn:hover {
+  background-color: #ef4444;
+  color: #fff;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .wrapper {
+    background-color: #2d1515;
+    border-color: #7f1d1d;
+  }
+  .title {
+    color: #fca5a5;
+  }
+  .message {
+    color: #f87171;
+  }
+}
