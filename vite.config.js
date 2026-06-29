@@ -4,6 +4,7 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/react-starter-kit/',
   plugins: [react()],
   resolve: {
     // Set up path aliases so imports like '@/components/Button' resolve to src/components/Button
